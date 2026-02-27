@@ -1,6 +1,6 @@
 ---
 ---
-<header class="w-full py-4 px-6 fixed top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
+<header class="w-full py-4 px-6 fixed top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
   <div class="max-w-7xl mx-auto flex justify-between items-center relative z-20">
     <!-- Logo -->
     <a href="/" class="flex items-center gap-3 group">
@@ -20,72 +20,69 @@
     </nav>
 
     <!-- Mobile Menu Button -->
-    <button id="mobile-menu-btn" class="md:hidden text-trust-blue p-2 cursor-pointer focus:outline-none z-50">
-      <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 transition-opacity duration-300">
+    <button id="mobile-menu-btn" class="md:hidden text-trust-blue p-2 cursor-pointer focus:outline-none" aria-label="Open mobile menu">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
       </svg>
-      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 hidden transition-opacity duration-300">
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav Overlay (Outside Header) -->
+<div id="mobile-menu" class="fixed inset-0 bg-[#1B365D] z-50 flex flex-col opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+  
+  <div class="w-full py-4 px-6 flex justify-between items-center bg-white/5 border-b border-white/10">
+    <a href="/" class="flex items-center gap-3">
+      <img src="/assets/images/header-logo.png" alt="Ask Nellie Logo" class="h-14 w-auto object-contain brightness-0 invert" />
+      <div class="flex flex-col">
+        <span class="font-heading font-extrabold text-xl text-white leading-none tracking-tight">Ask Nellie</span>
+        <span class="font-body font-medium text-xs text-action-orange tracking-wide uppercase mt-1">Handyman Services</span>
+      </div>
+    </a>
+    <button id="mobile-close-btn" class="text-white p-2 cursor-pointer focus:outline-none" aria-label="Close mobile menu">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
   </div>
 
-  <!-- Mobile Nav Overlay -->
-  <div id="mobile-menu" class="fixed inset-0 bg-trust-blue z-10 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
-    <nav class="flex flex-col gap-8 items-center font-heading font-bold text-3xl text-white">
+  <div class="flex-1 flex flex-col justify-center items-center pb-20">
+    <nav class="flex flex-col gap-10 items-center font-heading font-bold text-3xl text-white">
       <a href="#services" class="mobile-link hover:text-action-orange transition-colors">Services</a>
       <a href="#about" class="mobile-link hover:text-action-orange transition-colors">Why Us</a>
       <a href="#testimonials" class="mobile-link hover:text-action-orange transition-colors">Reviews</a>
-      <a href="#contact" class="mobile-link bg-action-orange text-white px-8 py-3 rounded-full hover:bg-orange-600 transition-colors mt-4">Get a Quote</a>
+      <a href="#contact" class="mobile-link bg-action-orange text-white px-10 py-4 rounded-full hover:bg-orange-600 transition-colors mt-6 text-2xl">Get a Quote</a>
     </nav>
   </div>
-</header>
+</div>
 
 <script>
-  // Use astro:page-load to ensure scripts run after ViewTransition navigations
-  document.addEventListener("astro:page-load", () => {
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    const iconMenu = document.getElementById('icon-menu');
-    const iconClose = document.getElementById('icon-close');
-    const links = document.querySelectorAll('.mobile-link');
-    
-    if (!btn || !menu) return;
+  // Simple DOM script, runs once globally (Safe because ViewTransitions are disabled)
+  const openBtn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('mobile-close-btn');
+  const menu = document.getElementById('mobile-menu');
+  const links = document.querySelectorAll('.mobile-link');
+  
+  const openMenu = () => {
+    if (menu) {
+      menu.classList.remove('opacity-0', 'pointer-events-none');
+      menu.classList.add('opacity-100', 'pointer-events-auto');
+      document.body.style.overflow = 'hidden'; 
+    }
+  };
 
-    let isMenuOpen = false;
+  const closeMenu = () => {
+    if (menu) {
+      menu.classList.remove('opacity-100', 'pointer-events-auto');
+      menu.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = ''; 
+    }
+  };
 
-    // Reset menu on page load (in case it was open before transition)
-    menu.classList.remove('opacity-100', 'pointer-events-auto');
-    menu.classList.add('opacity-0', 'pointer-events-none');
-    iconClose?.classList.add('hidden');
-    iconMenu?.classList.remove('hidden');
-    document.body.style.overflow = '';
+  if (openBtn) openBtn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-    const toggleMenu = () => {
-      isMenuOpen = !isMenuOpen;
-      if (isMenuOpen) {
-        menu.classList.remove('opacity-0', 'pointer-events-none');
-        menu.classList.add('opacity-100', 'pointer-events-auto');
-        iconMenu?.classList.add('hidden');
-        iconClose?.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
-      } else {
-        menu.classList.remove('opacity-100', 'pointer-events-auto');
-        menu.classList.add('opacity-0', 'pointer-events-none');
-        iconClose?.classList.add('hidden');
-        iconMenu?.classList.remove('hidden');
-        document.body.style.overflow = ''; // Restore scrolling
-      }
-    };
-
-    // Use .onclick to safely overwrite any existing listeners on morph
-    btn.onclick = toggleMenu;
-
-    // Close menu when a link is clicked
-    links.forEach(link => {
-      link.onclick = () => {
-        if (isMenuOpen) toggleMenu();
-      };
-    });
+  links.forEach(link => {
+    link.addEventListener('click', closeMenu);
   });
 </script>
