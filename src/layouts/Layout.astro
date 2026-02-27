@@ -13,11 +13,34 @@ const { title, description = "Ask Nellie - Reliable, Friendly Handyman Services"
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+        <!-- SEO -->
+		<meta name="description" content={description} />
+		<meta name="keywords" content="handyman, repairs, carpentry, flatpack assembly, home improvement" />
+		<meta name="author" content="Ask Nellie" />
+		<link rel="canonical" href="https://asknellie.co.uk/" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://asknellie.co.uk/" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content="/assets/images/logo.jpg" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://asknellie.co.uk/" />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content="/assets/images/logo.jpg" />
+
+        <!-- Favicons -->
+		<link rel="icon" type="image/jpeg" href="/assets/images/logo.jpg" />
+        <link rel="apple-touch-icon" href="/assets/images/logo.jpg" />
+
+		<meta name="generator" content={Astro.generator} />
 	</head>
 	<body class="font-body text-gray-800 antialiased selection:bg-orange-500 selection:text-white">
 		<slot />
