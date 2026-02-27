@@ -54,6 +54,13 @@
 
     let isMenuOpen = false;
 
+    // Reset menu on page load (in case it was open before transition)
+    menu.classList.remove('opacity-100', 'pointer-events-auto');
+    menu.classList.add('opacity-0', 'pointer-events-none');
+    iconClose?.classList.add('hidden');
+    iconMenu?.classList.remove('hidden');
+    document.body.style.overflow = '';
+
     const toggleMenu = () => {
       isMenuOpen = !isMenuOpen;
       if (isMenuOpen) {
@@ -71,18 +78,14 @@
       }
     };
 
-    // Remove old listeners to prevent duplicates on navigation
-    const newBtn = btn.cloneNode(true);
-    btn.parentNode.replaceChild(newBtn, btn);
-    newBtn.addEventListener('click', toggleMenu);
+    // Use .onclick to safely overwrite any existing listeners on morph
+    btn.onclick = toggleMenu;
 
     // Close menu when a link is clicked
     links.forEach(link => {
-      const newLink = link.cloneNode(true);
-      link.parentNode.replaceChild(newLink, link);
-      newLink.addEventListener('click', () => {
+      link.onclick = () => {
         if (isMenuOpen) toggleMenu();
-      });
+      };
     });
   });
 </script>
