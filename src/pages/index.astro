@@ -152,6 +152,8 @@ const testimonials = [
 		
 		gsap.registerPlugin(ScrollTrigger);
 
+		const tl = gsap.timeline();
+
 		// 1. Animate Hero Text elements stagger
 		tl.from(".hero-anim", { 
 			y: 50, 
