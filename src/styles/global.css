@@ -1,6 +1,6 @@
-@import "tailwindcss";
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@400;600;700;800&display=swap');
+
+@import "tailwindcss";
 
 @theme {
   --color-action-orange: #E85D04;
