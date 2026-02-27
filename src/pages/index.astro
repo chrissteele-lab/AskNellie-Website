@@ -24,9 +24,9 @@ const testimonials = [
 ---
 
 <Layout title="Ask Nellie | Handyman Services">
-	<!-- GSAP Preloader Placeholder -->
-	<div id="preloader" class="fixed inset-0 z-[100] bg-white flex items-center justify-center hidden">
-		<img src="/assets/images/logo.jpg" alt="Ask Nellie Logo" class="w-48 h-auto animate-pulse" />
+	<!-- GSAP Preloader -->
+	<div id="preloader" class="fixed inset-0 z-[100] bg-white flex items-center justify-center">
+		<img id="preloader-logo" src="/assets/images/logo.jpg" alt="Ask Nellie Logo" class="w-48 md:w-64 h-auto" />
 	</div>
 
 	<Header />
@@ -39,13 +39,13 @@ const testimonials = [
 			</div>
 			<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
 				<div class="flex-1 text-center md:text-left">
-					<h1 class="text-5xl md:text-7xl font-heading font-extrabold text-trust-blue leading-tight mb-6">
+					<h1 class="hero-anim text-5xl md:text-7xl font-heading font-extrabold text-trust-blue leading-tight mb-6">
 						Consider it <span class="text-action-orange">Done.</span>
 					</h1>
-					<p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl font-body">
+					<p class="hero-anim text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl font-body">
 						Reliable, friendly, and professional handyman services for your home and business.
 					</p>
-					<div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+					<div class="hero-anim flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
 						<a href="#contact" class="bg-action-orange text-white text-lg font-semibold px-8 py-4 rounded-full hover:bg-orange-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-center cursor-pointer">
 							Get a Free Quote
 						</a>
@@ -54,7 +54,7 @@ const testimonials = [
 						</a>
 					</div>
 				</div>
-				<div class="flex-1 w-full relative">
+				<div class="flex-1 w-full relative hero-image-wrapper">
 					<div class="absolute inset-0 bg-calm-wash rounded-3xl transform rotate-3 scale-105 z-[-1]"></div>
 					<img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1000&auto=format&fit=crop" alt="Professional Handyman at work" class="rounded-3xl shadow-2xl object-cover w-full h-[400px] md:h-[500px]" />
 				</div>
@@ -62,7 +62,7 @@ const testimonials = [
 		</section>
 
 		<!-- Services Grid -->
-		<section id="services" class="py-24 px-6 bg-gray-50">
+		<section id="services" class="py-24 px-6 bg-gray-50 overflow-hidden">
 			<div class="max-w-7xl mx-auto">
 				<div class="text-center mb-16">
 					<h2 class="text-4xl md:text-5xl font-heading font-bold text-trust-blue mb-4">Our Services</h2>
@@ -71,7 +71,7 @@ const testimonials = [
 				
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 					{services.map(service => (
-						<div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-transparent hover:border-action-orange group">
+						<div class="service-card bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-transparent hover:border-action-orange group">
 							<div class="text-4xl mb-6 transform group-hover:scale-110 transition-transform">{service.icon}</div>
 							<h3 class="text-2xl font-heading font-semibold text-trust-blue mb-3">{service.title}</h3>
 							<p class="text-gray-600 leading-relaxed">{service.desc}</p>
@@ -91,7 +91,7 @@ const testimonials = [
 					<h2 class="text-4xl md:text-5xl font-heading font-bold text-trust-blue mb-8">Why Choose Ask Nellie?</h2>
 					<div class="space-y-8">
 						{pillars.map(pillar => (
-							<div class="flex items-start gap-4">
+							<div class="pillar-item flex items-start gap-4">
 								<div class="mt-1 bg-white rounded-full p-2 shadow-sm text-action-orange">
 									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
 										<path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd" />
@@ -109,12 +109,12 @@ const testimonials = [
 		</section>
 
 		<!-- Testimonials -->
-		<section id="testimonials" class="py-24 px-6">
+		<section id="testimonials" class="py-24 px-6 overflow-hidden">
 			<div class="max-w-4xl mx-auto text-center">
 				<h2 class="text-4xl md:text-5xl font-heading font-bold text-trust-blue mb-12">What Our Customers Say</h2>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 					{testimonials.map(t => (
-						<div class="bg-gray-50 p-8 rounded-2xl italic text-gray-700 relative">
+						<div class="testimonial-card bg-gray-50 p-8 rounded-2xl italic text-gray-700 relative">
 							<span class="text-6xl text-calm-wash absolute top-4 left-4 opacity-50 font-serif">"</span>
 							<p class="relative z-10 text-lg mb-6 pt-4">"{t.quote}"</p>
 							<p class="font-heading font-semibold text-action-orange not-italic">— {t.name}</p>
@@ -136,4 +136,76 @@ const testimonials = [
 		</section>
 	</main>
 	<Footer />
+
+	<script>
+		import { gsap } from "gsap";
+		import { ScrollTrigger } from "gsap/ScrollTrigger";
+		
+		gsap.registerPlugin(ScrollTrigger);
+
+		// Hide preloader and animate hero on load
+		window.addEventListener("load", () => {
+			const tl = gsap.timeline();
+
+			// 1. Preloader Mascot Pulse (was CSS, but let's control exit)
+			tl.to("#preloader-logo", { scale: 1.1, duration: 0.8, yoyo: true, repeat: 1, ease: "power1.inOut" })
+			  .to("#preloader", { yPercent: -100, duration: 0.8, ease: "power3.inOut", delay: 0.2 })
+			  
+			  // 2. Animate Hero Text elements stagger
+			  .from(".hero-anim", { 
+				  y: 50, 
+				  opacity: 0, 
+				  duration: 0.8, 
+				  stagger: 0.2, 
+				  ease: "back.out(1.7)" 
+			  }, "-=0.3")
+
+			  // 3. Float in the Hero Image
+			  .from(".hero-image-wrapper", {
+				  x: 100,
+				  opacity: 0,
+				  duration: 1,
+				  ease: "power3.out"
+			  }, "-=0.6");
+		});
+
+		// Scroll Animations for Services
+		gsap.from(".service-card", {
+			scrollTrigger: {
+				trigger: "#services",
+				start: "top 80%"
+			},
+			y: 50,
+			opacity: 0,
+			duration: 0.6,
+			stagger: 0.15,
+			ease: "power2.out"
+		});
+
+		// Scroll Animations for Pillars
+		gsap.from(".pillar-item", {
+			scrollTrigger: {
+				trigger: "#about",
+				start: "top 70%"
+			},
+			x: -50,
+			opacity: 0,
+			duration: 0.6,
+			stagger: 0.2,
+			ease: "power2.out"
+		});
+
+		// Scroll Animations for Testimonials
+		gsap.from(".testimonial-card", {
+			scrollTrigger: {
+				trigger: "#testimonials",
+				start: "top 80%"
+			},
+			scale: 0.9,
+			opacity: 0,
+			duration: 0.6,
+			stagger: 0.2,
+			ease: "back.out(1.5)"
+		});
+	</script>
 </Layout>
