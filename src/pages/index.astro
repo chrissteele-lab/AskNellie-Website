@@ -87,22 +87,19 @@ const testimonials = [
 		<!-- Why Choose Us -->
 		<section id="about" class="py-24 px-6 bg-calm-wash relative overflow-hidden">
 			<div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-				<div class="flex-1">
-					<div class="polaroid-stack relative w-full flex justify-center items-center" style="min-height: 400px; perspective: 1000px;">
+				<div class="flex-1 w-full">
+					<div class="polaroid-stack relative w-full flex justify-center items-center" style="min-height: 340px; perspective: 1000px;">
 						<!-- Card 3 (back) -->
-						<div class="polaroid-card absolute bg-white p-3 pb-14 rounded-lg shadow-xl cursor-pointer select-none" style="z-index: 1; transform: rotate(6deg) translateX(15px) translateY(8px);" data-index="2">
-							<img src="/assets/images/photo3.png" alt="Nellie finishing up" class="w-72 h-56 sm:w-80 sm:h-64 object-cover rounded" draggable="false" />
-							<p class="absolute bottom-4 left-0 right-0 text-center text-sm text-gray-500 font-body italic">Another job done! ✅</p>
+						<div class="polaroid-card absolute bg-white p-2 sm:p-3 rounded-lg shadow-xl cursor-pointer select-none" style="z-index: 1; transform: rotate(6deg) translateX(15px) translateY(8px);" data-index="2">
+							<img src="/assets/images/photo3.png" alt="Nellie finishing up" class="w-56 h-44 sm:w-72 sm:h-56 lg:w-96 lg:h-72 object-cover rounded" draggable="false" />
 						</div>
 						<!-- Card 2 (middle) -->
-						<div class="polaroid-card absolute bg-white p-3 pb-14 rounded-lg shadow-xl cursor-pointer select-none" style="z-index: 2; transform: rotate(-3deg) translateX(-8px) translateY(4px);" data-index="1">
-							<img src="/assets/images/photo2.png" alt="Nellie on a job" class="w-72 h-56 sm:w-80 sm:h-64 object-cover rounded" draggable="false" />
-							<p class="absolute bottom-4 left-0 right-0 text-center text-sm text-gray-500 font-body italic">On the way! 🚐</p>
+						<div class="polaroid-card absolute bg-white p-2 sm:p-3 rounded-lg shadow-xl cursor-pointer select-none" style="z-index: 2; transform: rotate(-3deg) translateX(-8px) translateY(4px);" data-index="1">
+							<img src="/assets/images/photo2.png" alt="Nellie on a job" class="w-56 h-44 sm:w-72 sm:h-56 lg:w-96 lg:h-72 object-cover rounded" draggable="false" />
 						</div>
 						<!-- Card 1 (top) -->
-						<div class="polaroid-card absolute bg-white p-3 pb-14 rounded-lg shadow-xl cursor-pointer select-none" style="z-index: 3; transform: rotate(-1deg);" data-index="0">
-							<img src="/assets/images/photo.png" alt="Nellie at work" class="w-72 h-56 sm:w-80 sm:h-64 object-cover rounded" draggable="false" />
-							<p class="absolute bottom-4 left-0 right-0 text-center text-sm text-gray-500 font-body italic">Quality work, every time 🔧</p>
+						<div class="polaroid-card absolute bg-white p-2 sm:p-3 rounded-lg shadow-xl cursor-pointer select-none" style="z-index: 3; transform: rotate(-1deg);" data-index="0">
+							<img src="/assets/images/photo.png" alt="Nellie at work" class="w-56 h-44 sm:w-72 sm:h-56 lg:w-96 lg:h-72 object-cover rounded" draggable="false" />
 						</div>
 					</div>
 				</div>
@@ -277,8 +274,9 @@ const testimonials = [
 			const topCard = cards[topCardIdx];
 
 			// Fling the top card off to the right with a spin
+			const flingX = window.innerWidth < 640 ? 200 : 350;
 			gsap.to(topCard, {
-				x: 350,
+				x: flingX,
 				y: -60,
 				rotation: 25,
 				opacity: 0,
