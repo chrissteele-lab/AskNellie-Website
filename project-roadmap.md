@@ -7,35 +7,39 @@
 - [x] Review & integrate logo (`assets/images/logo.jpg`) into layout
 
 ## Phase 2: Professional Stack Migration & Foundation (Tailwind + Astro)
-- [ ] Initialize Astro project with Tailwind CSS integration
-- [ ] Initialize Git repository and create remote on GitHub
-- [ ] Set up layout and component structures for reusable elements
+- [x] Initialize Astro project with Tailwind CSS integration
+- [x] Initialize Git repository and create remote on GitHub
+- [x] Set up layout and component structures for reusable elements
 
 ## Phase 3: Static Homepage Build (Desktop-First)
-- [ ] Setup initial HTML/CSS/Tailwind boilerplate
-- [ ] Build Hero Section (with placeholder for GSAP preloader)
-- [ ] Build Main Content Sections (Services grid, Why Choose Us, Testimonials, CTA)
-- [ ] Build Footer & Desktop Navigation 
+- [x] Setup initial HTML/CSS/Tailwind boilerplate
+- [x] Build Hero Section (with placeholder for GSAP preloader)
+- [x] Build Main Content Sections (Services grid, Why Choose Us, Testimonials, CTA)
+- [x] Build Footer & Desktop Navigation 
 
 ## Phase 4: Responsive Design & Mobile Experience
-- [ ] Adapt layout for Tablet screens
-- [ ] Adapt layout for Mobile screens
-- [ ] Build custom Responsive Mobile Navigation (Burger menu & slide/fade-in overlay)
+- [x] Adapt layout for Tablet screens
+- [x] Adapt layout for Mobile screens
+- [x] Build custom Responsive Mobile Navigation (Burger menu & slide/fade-in overlay)
 
 ## Phase 5: Branding Assets & SEO 
-- [ ] Generate & add Favicon and App Icons
-- [ ] Implement Semantic HTML5 structure
-- [ ] Add Global SEO Meta tags (Title, Description, Keywords)
-- [ ] Add Open Graph (OG) & Twitter card data for social sharing
+- [x] Generate & add Favicon and App Icons (from mascot logo)
+- [x] Implement Semantic HTML5 structure
+- [x] Add Global SEO Meta tags (Title, Description, Keywords)
+- [x] Add Open Graph (OG) & Twitter card data for social sharing
+- [x] Add Web App Manifest for PWA support
+- [x] Obfuscate contact details (phone/email) against scrapers
 
 ## Phase 6: Premium Animations & Micro-Interactions (GSAP)
 - [ ] Implement GSAP Preloader sequence (incorporating the friendly mascot)
 - [ ] Add smooth Page Transitions 
-- [ ] Set up Scroll Reveals (fade-ins, slide-ups on scroll)
-- [ ] Refine Hover States on links and buttons
-- [ ] Add structural Micro-Interactions (button clicks, nav toggles)
+- [x] Set up Scroll Reveals (fade-ins, slide-ups on scroll)
+- [x] Build Polaroid stack photo carousel (Why Choose Us section)
+- [x] Refine Hover States on links and buttons
+- [x] Add structural Micro-Interactions (button clicks, nav toggles)
 
 ## Phase 7: Deployment
 - [ ] Final performance, Lighthouse audit, & Accessibility checks
-- [ ] Final commit & push to GitHub
-- [ ] Deploy live site via Vercel
+- [x] Final commit & push to GitHub
+- [x] Deploy live site via Vercel
+
