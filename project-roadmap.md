@@ -43,13 +43,18 @@
 - [x] Deploy live site via Vercel
 
 ## Phase 8: Content & Local SEO
-- [ ] Show tel number on Call Us buttons (visible for writing down)
-- [ ] Add "Areas We Serve" section (Stoke-on-Trent, Newcastle-under-Lyme, Leek, Staffordshire)
+- [x] Show tel number on Call Us buttons (visible for writing down)
+- [x] Add "Areas We Serve" section (Stoke-on-Trent six towns + 12 surrounding areas)
+- [x] Add "Areas We Serve" to navigation (header + footer)
+- [x] Add email icon to button like the WhatsApp and Call buttons
+- [x] Local business structured data (Schema.org JSON-LD)
+- [x] Improve meta descriptions, keywords, and geo meta tags
+- [x] Weave location keywords into all page copy for local SEO
 - [ ] Expand "About Neil" section — years of experience, personal story
 - [ ] Add pricing guide section (starting-from examples)
-- [ ] Local business structured data (Schema.org markup)
-- [ ] Improve meta descriptions and page metadata
 
 ## Phase 9: Compliance & Analytics
+- [ ] Set up Google Business Profile (essential for local SEO!)
 - [ ] Cookie consent banner
+- [ ] Google Analytics integration
 - [ ] Final Lighthouse audit (performance, accessibility, SEO)

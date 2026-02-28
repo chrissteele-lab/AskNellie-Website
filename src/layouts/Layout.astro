@@ -6,7 +6,7 @@ interface Props {
 	description?: string;
 }
 
-const { title, description = "Ask Nellie - Reliable, Friendly Handyman Services" } = Astro.props;
+const { title, description = "Ask Nellie — Your trusted local handyman in Stoke-on-Trent & Staffordshire. Over 20 years' experience. Reliable, friendly service for homes and businesses. Free quotes." } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,8 +18,12 @@ const { title, description = "Ask Nellie - Reliable, Friendly Handyman Services"
 
         <!-- SEO -->
 		<meta name="description" content={description} />
-		<meta name="keywords" content="handyman, repairs, carpentry, flatpack assembly, home improvement, TV mounting, jetwashing, garden maintenance, plumbing, electrician, Ask Nellie" />
+		<meta name="keywords" content="handyman Stoke-on-Trent, handyman Staffordshire, handyman Newcastle-under-Lyme, home repairs Stoke, flatpack assembly, TV mounting, jetwashing, garden maintenance, plumbing, electrician, Ask Nellie, handyman near me, local handyman" />
 		<meta name="author" content="Ask Nellie Handyman Services" />
+		<meta name="geo.region" content="GB-STS" />
+		<meta name="geo.placename" content="Stoke-on-Trent" />
+		<meta name="geo.position" content="53.0027;-2.1794" />
+		<meta name="ICBM" content="53.0027, -2.1794" />
 		<link rel="canonical" href="https://asknellie.co.uk/" />
 
         <!-- Open Graph / Facebook -->
@@ -45,6 +49,40 @@ const { title, description = "Ask Nellie - Reliable, Friendly Handyman Services"
 		<meta name="theme-color" content="#1B365D" />
 
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- Local Business Schema.org -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "HomeAndConstructionBusiness",
+			"name": "Ask Nellie Handyman Services",
+			"image": "https://asknellie.co.uk/icon-512x512.png",
+			"url": "https://asknellie.co.uk",
+			"description": "Reliable, friendly handyman services across Stoke-on-Trent and Staffordshire. Over 20 years' experience.",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Alfreton Road",
+				"addressLocality": "Stoke-on-Trent",
+				"addressRegion": "Staffordshire",
+				"postalCode": "ST4 2NX",
+				"addressCountry": "GB"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": 53.0027,
+				"longitude": -2.1794
+			},
+			"areaServed": [
+				"Stoke-on-Trent", "Hanley", "Fenton", "Longton", "Burslem", "Tunstall",
+				"Newcastle-under-Lyme", "Leek", "Stone", "Stafford", "Cheadle", "Biddulph",
+				"Kidsgrove", "Audley", "Endon", "Brown Edge", "Werrington", "Trentham"
+			],
+			"priceRange": "££",
+			"openingHours": "Mo-Sa 08:00-18:00",
+			"founder": {
+				"@type": "Person",
+				"name": "Neil Hughes"
+			}
+		})} />
 	</head>
 	<body class="font-body text-gray-800 antialiased selection:bg-orange-500 selection:text-white">
 		<slot />
