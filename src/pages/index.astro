@@ -2,6 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+
+import photoImg from '../assets/images/photo.png';
+import logoImg from '../assets/images/logo.jpg';
+import jobWorktop from '../assets/images/jobs/job_worktop_clean_1772277109072.png';
+import jobGarden from '../assets/images/jobs/job_garden_tidy_1772277129353.png';
+import jobFencing from '../assets/images/jobs/Feather-edge-fencing-frame-1024x887.jpg';
+import jobSink from '../assets/images/jobs/job_sink_clean_1772277186429.png';
+import jobWardrobe from '../assets/images/jobs/job_wardrobe_built_1772277199345.png';
+import jobDoor from '../assets/images/jobs/door-handles-blog02-700x463.jpg';
+import photo3Img from '../assets/images/photo3.png';
+import photo2Img from '../assets/images/photo2.png';
+import neilDogImg from '../assets/images/neil-dog.jpg';
 
 const services = [
   { title: "Kitchens & Bathrooms", desc: "Silicone resealing, tap repairs, tiling touch-ups, and general kitchen and bathroom maintenance.", icon: "💧" },
@@ -32,7 +45,7 @@ const testimonials = [
 		<!-- Hero Section -->
 		<section id="hero" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 overflow-hidden">
 			<div class="absolute inset-0 z-[-1] opacity-[0.03]">
-				<img src="/assets/images/photo.png" alt="Background Texture" class="w-full h-full object-cover grayscale" />
+				<Image src={photoImg} alt="Background Texture" class="w-full h-full object-cover grayscale" />
 			</div>
 			<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
 				<div class="flex-1 text-center md:text-left">
@@ -42,7 +55,7 @@ const testimonials = [
 					<p class="hero-anim text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl font-body">
 						Reliable, friendly, and professional handyman services across Stoke-on-Trent and Staffordshire. <br /><br/> With over 20 years' experience, just ask Nellie!
 					</p>
-					<div class="hero-anim flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+					<div class="hero-anim flex flex-col lg:flex-row gap-4 justify-center md:justify-start">
 						<a href="#contact" class="bg-action-orange text-white flex items-center justify-center gap-2 text-lg font-semibold px-8 py-4 rounded-full hover:bg-orange-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-center cursor-pointer">
 							Get a Free Quote
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
@@ -58,58 +71,66 @@ const testimonials = [
 					  <!-- Decorative elements behind the logo container -->
 					  <div class="absolute -top-6 -left-6 w-20 h-20 bg-action-orange/20 rounded-full blur-2xl z-[-1]"></div>
 					  <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-trust-blue/20 rounded-full blur-3xl z-[-1]"></div>
-					  <img src="/assets/images/logo.jpg" alt="Ask Nellie Handyman Services Logo" class="rounded-2xl w-full max-w-md h-auto object-contain relative z-10 hover:scale-[1.02] transition-transform duration-500" />
+					  <Image src={logoImg} alt="Ask Nellie Handyman Services Logo" class="rounded-2xl w-full max-w-md h-auto object-contain relative z-10 hover:scale-[1.02] transition-transform duration-500" />
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- Services Grid -->
-		<section id="services" class="py-24 px-6 bg-gray-50 overflow-hidden relative">
-			<!-- Scattered Polaroid Photos - Desktop (hidden on mobile) -->
-			<div class="hidden lg:block">
-				<!-- Left side photos -->
-				<div class="work-photo absolute -left-4 top-32 bg-white p-2 rounded-lg shadow-lg z-0 opacity-70 hover:opacity-100 hover:z-20 transition-all duration-300" style="transform: rotate(-6deg);">
-					<img src="/assets/images/photo.png" alt="Handyman work example" class="w-36 h-28 object-cover rounded" />
-				</div>
-				<div class="work-photo absolute left-2 top-[55%] bg-white p-2 rounded-lg shadow-lg z-0 opacity-70 hover:opacity-100 hover:z-20 transition-all duration-300" style="transform: rotate(4deg);">
-					<img src="/assets/images/photo2.png" alt="Handyman work example" class="w-32 h-24 object-cover rounded" />
-				</div>
-				<div class="work-photo absolute -left-2 bottom-24 bg-white p-2 rounded-lg shadow-lg z-0 opacity-70 hover:opacity-100 hover:z-20 transition-all duration-300" style="transform: rotate(-3deg);">
-					<img src="/assets/images/photo3.png" alt="Handyman work example" class="w-36 h-28 object-cover rounded" />
-				</div>
-				<!-- Right side photos -->
-				<div class="work-photo absolute -right-4 top-40 bg-white p-2 rounded-lg shadow-lg z-0 opacity-70 hover:opacity-100 hover:z-20 transition-all duration-300" style="transform: rotate(5deg);">
-					<img src="/assets/images/photo3.png" alt="Handyman work example" class="w-32 h-24 object-cover rounded" />
-				</div>
-				<div class="work-photo absolute right-2 top-[50%] bg-white p-2 rounded-lg shadow-lg z-0 opacity-70 hover:opacity-100 hover:z-20 transition-all duration-300" style="transform: rotate(-4deg);">
-					<img src="/assets/images/photo.png" alt="Handyman work example" class="w-36 h-28 object-cover rounded" />
-				</div>
-				<div class="work-photo absolute -right-2 bottom-28 bg-white p-2 rounded-lg shadow-lg z-0 opacity-70 hover:opacity-100 hover:z-20 transition-all duration-300" style="transform: rotate(3deg);">
-					<img src="/assets/images/photo2.png" alt="Handyman work example" class="w-32 h-24 object-cover rounded" />
-				</div>
-			</div>
+		<section id="services" class="py-24 lg:py-32 px-6 bg-gray-50 relative overflow-hidden">
+			<div class="max-w-7xl mx-auto relative">
+				<!-- Scattered Polaroid Photos -->
+				<div class="pointer-events-none absolute inset-0 z-0">
+					<!-- PHOTO 1: Top Left (Mobile & Tablet) / Left Cluster (Desktop) -->
+					<div class="work-photo absolute bg-white p-3 rounded-xl shadow-xl opacity-85 min-[1400px]:opacity-90 transition-all top-[-100px] left-[-20px] min-[1400px]:top-[-260px] min-[1400px]:left-[-340px] w-56 sm:w-72 min-[1400px]:!w-[34rem]" 
+						 style="transform: rotate(-8deg);">
+						<Image src={jobWorktop} alt="Clean new worktop installation" 
+							 class="w-full aspect-video object-cover rounded" />
+					</div>
 
-			<!-- Polaroid strip - Mobile only (above cards) -->
-			<div class="flex lg:hidden gap-4 overflow-x-auto pb-8 -mx-2 px-2 scrollbar-hide">
-				<div class="work-photo flex-shrink-0 bg-white p-1.5 rounded-lg shadow-md" style="transform: rotate(-3deg);">
-					<img src="/assets/images/photo.png" alt="Handyman work" class="w-28 h-20 object-cover rounded" />
-				</div>
-				<div class="work-photo flex-shrink-0 bg-white p-1.5 rounded-lg shadow-md" style="transform: rotate(2deg);">
-					<img src="/assets/images/photo2.png" alt="Handyman work" class="w-28 h-20 object-cover rounded" />
-				</div>
-				<div class="work-photo flex-shrink-0 bg-white p-1.5 rounded-lg shadow-md" style="transform: rotate(-2deg);">
-					<img src="/assets/images/photo3.png" alt="Handyman work" class="w-28 h-20 object-cover rounded" />
-				</div>
-			</div>
+					<!-- PHOTO 2: Top Right Back (Mobile & Tablet) / Left Cluster (Desktop) -->
+					<div class="work-photo absolute bg-white p-3 rounded-xl shadow-lg opacity-75 min-[1400px]:opacity-80 transition-all top-[-120px] right-[20px] min-[1400px]:top-[220px] min-[1400px]:left-[-280px] min-[1400px]:right-auto w-48 sm:w-64 min-[1400px]:!w-[30rem]" 
+						 style="transform: rotate(5deg);">
+						<Image src={jobGarden} alt="Tidy summer garden patio" 
+							 class="w-full aspect-[4/3] object-cover rounded" />
+					</div>
 
-			<div class="max-w-5xl mx-auto relative z-10">
-				<div class="reveal-heading text-center mb-16">
+					<!-- PHOTO 3: Top Right Front (Mobile & Tablet) / Left Cluster (Desktop) -->
+					<div class="work-photo absolute bg-white p-3 rounded-xl shadow-2xl opacity-90 min-[1400px]:opacity-95 transition-all z-10 top-[-60px] right-[-30px] min-[1400px]:bottom-[-220px] min-[1400px]:top-auto min-[1400px]:left-[-340px] min-[1400px]:right-auto w-56 sm:w-72 min-[1400px]:!w-[28rem]" 
+						 style="transform: rotate(14deg);">
+						<Image src={jobFencing} alt="Newly installed wooden fence" 
+							 class="w-full aspect-[4/3] object-cover rounded" />
+					</div>
+
+					<!-- PHOTO 4: Bottom Left Back (Mobile & Tablet) / Right Cluster (Desktop) -->
+					<div class="work-photo absolute bg-white p-3 rounded-xl shadow-lg opacity-75 min-[1400px]:opacity-80 transition-all bottom-[-100px] left-[20px] min-[1400px]:top-[-260px] min-[1400px]:bottom-auto min-[1400px]:right-[-280px] min-[1400px]:left-auto w-48 sm:w-64 min-[1400px]:!w-[30rem]" 
+						 style="transform: rotate(-12deg);">
+						<Image src={jobSink} alt="Sparkling clean kitchen sink" 
+							 class="w-full aspect-[4/3] object-cover rounded" />
+					</div>
+
+					<!-- PHOTO 5: Bottom Left Front (Mobile & Tablet) / Right Cluster (Desktop) -->
+					<div class="work-photo absolute bg-white p-3 rounded-xl shadow-2xl opacity-90 min-[1400px]:opacity-95 transition-all z-10 bottom-[-80px] left-[-30px] min-[1400px]:bottom-[-20px] min-[1400px]:top-auto min-[1400px]:right-[-340px] min-[1400px]:left-auto w-56 sm:w-72 min-[1400px]:!w-[34rem]" 
+						 style="transform: rotate(-4deg);">
+						<Image src={jobWardrobe} alt="Freshly built custom wardrobe" 
+							 class="w-full aspect-[4/3] object-cover rounded" />
+					</div>
+
+					<!-- PHOTO 6: Bottom Right (Mobile & Tablet) / Right Cluster (Desktop) -->
+					<div class="work-photo absolute bg-white p-3 rounded-xl shadow-xl opacity-85 min-[1400px]:opacity-90 transition-all bottom-[-120px] right-[-20px] min-[1400px]:bottom-[-260px] min-[1400px]:top-auto min-[1400px]:right-[-360px] w-56 sm:w-72 min-[1400px]:!w-[28rem]" 
+						 style="transform: rotate(8deg);">
+						<Image src={jobDoor} alt="Expertly hung internal door" 
+							 class="w-full aspect-[4/3] object-cover rounded" />
+					</div>
+				</div>
+
+				<div class="reveal-heading text-center mb-16 relative z-10 pt-16 lg:pt-0">
 					<h2 class="text-4xl md:text-5xl font-heading font-bold text-trust-blue mb-4">Our Services</h2>
 					<p class="text-lg text-gray-600 max-w-2xl mx-auto">From quick fixes to custom builds across Stoke-on-Trent and Staffordshire, we handle it all with care and precision.</p>
 				</div>
 				
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
 					{services.map(service => (
 						<div class="service-card bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-transparent hover:border-action-orange group">
 							<div class="text-4xl mb-6 transform group-hover:scale-110 transition-transform">{service.icon}</div>
@@ -118,20 +139,8 @@ const testimonials = [
 						</div>
 					))}
 				</div>
-				<p class="service-card text-center mt-10 text-gray-500 text-lg">For more examples of our work, <a href="https://www.facebook.com/people/ASK-Nellie-handyman/61586513204662/" target="_blank" rel="noopener noreferrer" class="text-action-orange font-semibold hover:underline inline-flex items-center gap-1">follow us on Facebook <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></p>
-			</div>
 
-			<!-- Polaroid strip - Mobile only (below cards) -->
-			<div class="flex lg:hidden gap-4 overflow-x-auto pt-8 -mx-2 px-2 scrollbar-hide">
-				<div class="work-photo flex-shrink-0 bg-white p-1.5 rounded-lg shadow-md" style="transform: rotate(3deg);">
-					<img src="/assets/images/photo3.png" alt="Handyman work" class="w-28 h-20 object-cover rounded" />
-				</div>
-				<div class="work-photo flex-shrink-0 bg-white p-1.5 rounded-lg shadow-md" style="transform: rotate(-2deg);">
-					<img src="/assets/images/photo.png" alt="Handyman work" class="w-28 h-20 object-cover rounded" />
-				</div>
-				<div class="work-photo flex-shrink-0 bg-white p-1.5 rounded-lg shadow-md" style="transform: rotate(2deg);">
-					<img src="/assets/images/photo2.png" alt="Handyman work" class="w-28 h-20 object-cover rounded" />
-				</div>
+				<p class="service-card text-center mt-10 text-gray-500 text-lg relative z-10 pb-8 lg:pb-0">For more examples of our work, <a href="https://www.facebook.com/people/ASK-Nellie-handyman/61586513204662/" target="_blank" rel="noopener noreferrer" class="text-action-orange font-semibold hover:underline inline-flex items-center gap-1">follow us on Facebook <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></p>
 			</div>
 		</section>
 
@@ -142,15 +151,15 @@ const testimonials = [
 					<div class="polaroid-stack relative w-full flex justify-center items-center min-h-[280px] sm:min-h-[340px] lg:min-h-[420px]" style="perspective: 1000px;">
 						<!-- Card 3 (back) -->
 						<div class="polaroid-card absolute bg-white p-2 sm:p-3 rounded-lg shadow-xl cursor-pointer select-none" style="z-index: 1; transform: rotate(6deg) translateX(15px) translateY(8px);" data-index="2">
-							<img src="/assets/images/photo3.png" alt="Handyman work completed in Stoke-on-Trent" class="w-72 h-56 sm:w-[360px] sm:h-[280px] lg:w-[480px] lg:h-[360px] object-cover rounded" draggable="false" />
+							<Image src={photo3Img} alt="Handyman work completed in Stoke-on-Trent" class="w-72 h-56 sm:w-[360px] sm:h-[280px] lg:w-[480px] lg:h-[360px] object-cover rounded" draggable="false" />
 						</div>
 						<!-- Card 2 (middle) -->
 						<div class="polaroid-card absolute bg-white p-2 sm:p-3 rounded-lg shadow-xl cursor-pointer select-none" style="z-index: 2; transform: rotate(-3deg) translateX(-8px) translateY(4px);" data-index="1">
-							<img src="/assets/images/photo2.png" alt="Professional handyman services in Staffordshire" class="w-72 h-56 sm:w-[360px] sm:h-[280px] lg:w-[480px] lg:h-[360px] object-cover rounded" draggable="false" />
+							<Image src={photo2Img} alt="Professional handyman services in Staffordshire" class="w-72 h-56 sm:w-[360px] sm:h-[280px] lg:w-[480px] lg:h-[360px] object-cover rounded" draggable="false" />
 						</div>
 						<!-- Card 1 (top) -->
 						<div class="polaroid-card absolute bg-white p-2 sm:p-3 rounded-lg shadow-xl cursor-pointer select-none" style="z-index: 3; transform: rotate(-1deg);" data-index="0">
-							<img src="/assets/images/photo.png" alt="Ask Nellie handyman at work in Stoke-on-Trent" class="w-72 h-56 sm:w-[360px] sm:h-[280px] lg:w-[480px] lg:h-[360px] object-cover rounded" draggable="false" />
+							<Image src={photoImg} alt="Ask Nellie handyman at work in Stoke-on-Trent" class="w-72 h-56 sm:w-[360px] sm:h-[280px] lg:w-[480px] lg:h-[360px] object-cover rounded" draggable="false" />
 						</div>
 					</div>
 				</div>
@@ -178,7 +187,7 @@ const testimonials = [
 		<!-- Meet Neil -->
 		<section class="meet-neil py-20 px-6 relative overflow-hidden">
 			<div class="absolute inset-0 z-0">
-				<img src="/assets/images/neil-dog.jpg" alt="" class="w-full h-full object-cover opacity-[0.15] grayscale" />
+				<Image src={neilDogImg} alt="" class="w-full h-full object-cover opacity-[0.15] grayscale" />
 			</div>
 			<div class="max-w-3xl mx-auto text-center relative z-10">
 				<h3 class="reveal-heading text-3xl md:text-4xl font-heading font-bold text-trust-blue mb-6">Meet Neil</h3>
@@ -337,12 +346,14 @@ const testimonials = [
 				entries.forEach(entry => {
 					if (entry.isIntersecting) {
 						const resetProps: gsap.TweenVars = {};
-						for (const key of Object.keys(animProps)) resetProps[key] = 0;
+						for (const key of Object.keys(animProps)) {
+							resetProps[key] = key === 'scale' ? 1 : 0;
+						}
 						gsap.to(entry.target, {
 							opacity: 1,
 							...resetProps,
 							duration: 0.6,
-							delay: stagger * Array.from(els).indexOf(entry.target as Element),
+							delay: stagger * (Array.from(els).indexOf(entry.target as Element) % 4), // Added modulo to stagger
 							ease: "power2.out"
 						});
 						observer.unobserve(entry.target);
