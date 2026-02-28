@@ -36,7 +36,6 @@
 - [x] Refine Hover States on links and buttons
 - [x] Add structural Micro-Interactions (button clicks, nav toggles)
 - [x] Fix mobile scroll snap-back (ignoreMobileResize, href fix)
-- [ ] Implement GSAP Preloader sequence (incorporating the friendly mascot)
 - [ ] Add smooth Page Transitions
 
 ## Phase 7: Deployment ✅
@@ -53,5 +52,4 @@
 
 ## Phase 9: Compliance & Analytics
 - [ ] Cookie consent banner
-- [ ] Google Analytics integration
 - [ ] Final Lighthouse audit (performance, accessibility, SEO)

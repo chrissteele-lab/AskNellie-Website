@@ -30,7 +30,7 @@ const testimonials = [
 	
 	<main class="min-h-screen">
 		<!-- Hero Section -->
-		<section id="hero" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6">
+		<section id="hero" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 overflow-hidden">
 			<div class="absolute inset-0 z-[-1] opacity-[0.03]">
 				<img src="/assets/images/photo.png" alt="Background Texture" class="w-full h-full object-cover grayscale" />
 			</div>
@@ -65,7 +65,7 @@ const testimonials = [
 		</section>
 
 		<!-- Services Grid -->
-		<section id="services" class="py-24 px-6 bg-gray-50">
+		<section id="services" class="py-24 px-6 bg-gray-50 overflow-hidden">
 			<div class="max-w-7xl mx-auto">
 				<div class="text-center mb-16">
 					<h2 class="text-4xl md:text-5xl font-heading font-bold text-trust-blue mb-4">Our Services</h2>
@@ -85,7 +85,7 @@ const testimonials = [
 		</section>
 
 		<!-- Why Choose Us -->
-		<section id="about" class="py-24 px-6 bg-calm-wash relative">
+		<section id="about" class="py-24 px-6 bg-calm-wash relative overflow-hidden">
 			<div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
 				<div class="flex-1 w-full">
 					<div class="polaroid-stack relative w-full flex justify-center items-center min-h-[280px] sm:min-h-[340px] lg:min-h-[420px]" style="perspective: 1000px;">
@@ -125,7 +125,7 @@ const testimonials = [
 		</section>
 
 		<!-- Testimonials -->
-		<section id="testimonials" class="py-24 px-6">
+		<section id="testimonials" class="py-24 px-6 overflow-hidden">
 			<div class="max-w-4xl mx-auto text-center">
 				<h2 class="text-4xl md:text-5xl font-heading font-bold text-trust-blue mb-12">What Our Customers Say</h2>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -165,12 +165,6 @@ const testimonials = [
 
 	<script>
 		import { gsap } from "gsap";
-		import { ScrollTrigger } from "gsap/ScrollTrigger";
-		
-		gsap.registerPlugin(ScrollTrigger);
-
-		// Prevent scroll jumps on mobile when address bar shows/hides
-		ScrollTrigger.config({ ignoreMobileResize: true });
 
 		const tl = gsap.timeline();
 
@@ -191,64 +185,58 @@ const testimonials = [
 			ease: "power3.out"
 		}, "-=0.6");
 
-		// Scroll Animations for Services
-		const serviceCards = document.querySelectorAll(".service-card");
-		if (serviceCards.length) {
-			gsap.set(".service-card", { opacity: 0, y: 50 });
-			ScrollTrigger.create({
-				trigger: "#services",
-				start: "top 85%",
-				once: true,
-				onEnter: () => {
-					gsap.to(".service-card", {
-						opacity: 1,
-						y: 0,
-						duration: 0.6,
-						stagger: 0.15,
-						ease: "power2.out"
-					});
-				}
-			});
+		// Scroll Reveal using IntersectionObserver (no ScrollTrigger = no scroll hijacking)
+		function revealOnScroll(selector: string, animProps: gsap.TweenVars, stagger = 0.15) {
+			const els = document.querySelectorAll(selector);
+			if (!els.length) return;
+			// Set initial hidden state
+			els.forEach(el => gsap.set(el, { opacity: 0, ...animProps }));
+			// Create a one-shot observer
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						// Animate all matching elements with stagger
+						const resetProps: gsap.TweenVars = {};
+						for (const key of Object.keys(animProps)) resetProps[key] = 0;
+						gsap.to(selector, {
+							opacity: 1,
+							...resetProps,
+							duration: 0.6,
+							stagger,
+							ease: "power2.out"
+						});
+						observer.disconnect();
+					}
+				});
+			}, { threshold: 0.1 });
+			// Observe the first element's parent section
+			const section = els[0].closest('section');
+			if (section) observer.observe(section);
 		}
 
-		// Scroll Animations for Pillars
-		const pillarItems = document.querySelectorAll(".pillar-item");
-		if (pillarItems.length) {
-			gsap.set(".pillar-item", { opacity: 0, x: -50 });
-			ScrollTrigger.create({
-				trigger: "#about",
-				start: "top 75%",
-				once: true,
-				onEnter: () => {
-					gsap.to(".pillar-item", {
-						opacity: 1,
-						x: 0,
-						duration: 0.6,
-						stagger: 0.2,
-						ease: "power2.out"
-					});
-				}
-			});
-		}
+		revealOnScroll(".service-card", { y: 50 });
+		revealOnScroll(".pillar-item", { x: -50 }, 0.2);
 
-		// Scroll Animations for Testimonials
-		const testimonialCards = document.querySelectorAll(".testimonial-card");
-		if (testimonialCards.length) {
+		// Testimonials with custom ease
+		const testimonialEls = document.querySelectorAll(".testimonial-card");
+		if (testimonialEls.length) {
 			gsap.set(".testimonial-card", { opacity: 0, scale: 0.9 });
-			ScrollTrigger.create({
-				trigger: "#testimonials",
-				start: "top 80%",
-				once: true,
-				onEnter: () => {
-					gsap.to(".testimonial-card", {
-						opacity: 1,
-						scale: 1,
-						duration: 0.6,
-						stagger: 0.2,
-						ease: "back.out(1.5)"
-					});
-				}
-			});
+			const tObserver = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						gsap.to(".testimonial-card", {
+							opacity: 1,
+							scale: 1,
+							duration: 0.6,
+							stagger: 0.2,
+							ease: "back.out(1.5)"
+						});
+						tObserver.disconnect();
+					}
+				});
+			}, { threshold: 0.1 });
+			const tSection = testimonialEls[0].closest('section');
+			if (tSection) tObserver.observe(tSection);
 		}
 
 		// Polaroid Stack Carousel
