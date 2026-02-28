@@ -18,3 +18,7 @@ body {
   color: var(--color-text-charcoal);
   scroll-behavior: smooth;
 }
+
+section[id] {
+  scroll-margin-top: 5rem;
+}

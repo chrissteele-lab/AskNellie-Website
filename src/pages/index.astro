@@ -4,9 +4,9 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const services = [
-  { title: "Kitchens & Bathrooms", desc: "Silicone resealing, tap repairs, tiling touch-ups, and general kitchen and bathroom maintenance.", icon: "�" },
+  { title: "Kitchens & Bathrooms", desc: "Silicone resealing, tap repairs, tiling touch-ups, and general kitchen and bathroom maintenance.", icon: "💧" },
   { title: "Granite & Quartz Worktops", desc: "Specialist fitting, cutting, and repairs for granite and quartz surfaces. Over 20 years' experience.", icon: "💎" },
-  { title: "Doors & Locks", desc: "Sticking doors fixed, new locks fitted, hinges replaced, and handles upgraded.", icon: "�" },
+  { title: "Doors & Locks", desc: "Sticking doors fixed, new locks fitted, hinges replaced, and handles upgraded.", icon: "🚪" },
   { title: "Odd Jobs & Mounting", desc: "TV wall mounting, shelving, flatpack assembly, and plasterboard repairs.", icon: "🪛" },
   { title: "Electrical Basics", desc: "Socket and switch replacements, light fitting installations, and minor electrical tasks.", icon: "💡" },
   { title: "Garden & Exterior", desc: "Fence and gate repairs, shed maintenance, garden tidying, and driveway jetwashing.", icon: "🏡" }
@@ -20,8 +20,8 @@ const pillars = [
 ];
 
 const testimonials = [
-  { name: "Sarah M.", quote: "Nellie was fantastic. Arrived on time, fixed my door, and hoovered up after. Highly recommend!" },
-  { name: "James T.", quote: "Finally, a handyman who actually communicates! The shelving looks incredible." }
+  { name: "Sarah M.", quote: "Nellie was fantastic. Arrived on time, fixed my door, and hoovered up after. Brilliant job!" },
+  { name: "Emily H", quote: "Neil resealed my bathroom, he did a wonderful job and was very friendly." }
 ];
 ---
 
@@ -40,7 +40,7 @@ const testimonials = [
 						Consider it <span class="text-action-orange">Done.</span>
 					</h1>
 					<p class="hero-anim text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl font-body">
-						Reliable, friendly, and professional handyman services across Stoke-on-Trent and Staffordshire. With over 20 years' experience, just ask Nellie!
+						Reliable, friendly, and professional handyman services across Stoke-on-Trent and Staffordshire. <br /><br/> With over 20 years' experience, just ask Nellie!
 					</p>
 					<div class="hero-anim flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
 						<a href="#contact" class="bg-action-orange text-white flex items-center justify-center gap-2 text-lg font-semibold px-8 py-4 rounded-full hover:bg-orange-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-center cursor-pointer">
@@ -67,9 +67,9 @@ const testimonials = [
 		<!-- Services Grid -->
 		<section id="services" class="py-24 px-6 bg-gray-50 overflow-hidden">
 			<div class="max-w-7xl mx-auto">
-				<div class="text-center mb-16">
+				<div class="reveal-heading text-center mb-16">
 					<h2 class="text-4xl md:text-5xl font-heading font-bold text-trust-blue mb-4">Our Services</h2>
-					<p class="text-lg text-gray-600 max-w-2xl mx-auto">From quick fixes to custom builds across Stoke-on-Trent and Staffordshire — we handle it all with care and precision.</p>
+					<p class="text-lg text-gray-600 max-w-2xl mx-auto">From quick fixes to custom builds across Stoke-on-Trent and Staffordshire, we handle it all with care and precision.</p>
 				</div>
 				
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -105,7 +105,7 @@ const testimonials = [
 					</div>
 				</div>
 				<div class="flex-1">
-					<h2 class="text-4xl md:text-5xl font-heading font-bold text-trust-blue mb-8">Why Choose Ask Nellie?</h2>
+					<h2 class="reveal-heading text-4xl md:text-5xl font-heading font-bold text-trust-blue mb-8">Why Choose Ask Nellie?</h2>
 					<div class="space-y-8">
 						{pillars.map(pillar => (
 							<div class="pillar-item flex items-start gap-4">
@@ -123,28 +123,33 @@ const testimonials = [
 					</div>
 				</div>
 			</div>
+		</section>
 
-			<!-- Meet Neil -->
-			<div class="meet-neil max-w-7xl mx-auto mt-20 pt-16 border-t border-trust-blue/10">
-				<div class="max-w-3xl mx-auto text-center">
-					<h3 class="text-3xl md:text-4xl font-heading font-bold text-trust-blue mb-6">Meet Neil</h3>
-					<p class="text-lg text-gray-700 leading-relaxed mb-6">
-						Hi, I'm Neil Hughes, but you can call me Nellie. I've been working with my hands for over 20 years, running my own company specialising in kitchens and quartz worktops. I still offer specialist granite and quartz worktop services alongside the full range of handyman work you see today.
-					</p>
-					<p class="text-lg text-gray-700 leading-relaxed mb-6">
-						Born and bred in Stoke-on-Trent, I grew up around Fenton and Longton, and I'm proud to serve the area. When I'm not fixing, building, or jetwashing, you'll find me at home with my wife Amy or out walking our beautiful dog.
-					</p>
-					<p class="text-lg text-gray-700 leading-relaxed">
-						I believe in doing the job right, leaving things clean and tidy, and never letting people down. No messing about, just honest, reliable work.
-					</p>
-				</div>
+		<!-- Meet Neil -->
+		<section class="meet-neil py-20 px-6 relative overflow-hidden">
+			<div class="absolute inset-0 z-0">
+				<img src="/assets/images/neil-dog.jpg" alt="" class="w-full h-full object-cover opacity-[0.15] grayscale" />
+			</div>
+			<div class="max-w-3xl mx-auto text-center relative z-10">
+				<h3 class="reveal-heading text-3xl md:text-4xl font-heading font-bold text-trust-blue mb-6">Meet Neil</h3>
+				<span class="text-8xl text-trust-blue/10 font-serif leading-none block -mb-8">&ldquo;</span>
+				<p class="text-lg text-gray-700 leading-relaxed mb-6">
+					Hi, I'm Neil Hughes, but you can call me Nellie. I've been working with my hands for over 20 years, running my own company specialising in kitchens and quartz worktops. I still offer specialist granite and quartz worktop services alongside the full range of handyman work you see today.
+				</p>
+				<p class="text-lg text-gray-700 leading-relaxed mb-6">
+					Born and bred in Stoke-on-Trent, I grew up around Fenton and Longton, and I'm proud to serve the area. When I'm not fixing, building, or jetwashing, you'll find me at home with my wife Amy or out walking our beautiful dog.
+				</p>
+				<p class="text-lg text-gray-700 leading-relaxed">
+					I believe in doing the job right, leaving things clean and tidy, and never letting people down. No messing about, just honest, reliable work.
+				</p>
+				<span class="text-8xl text-trust-blue/10 font-serif leading-none block mt-4">&rdquo;</span>
 			</div>
 		</section>
 
 		<!-- Testimonials -->
 		<section id="testimonials" class="py-24 px-6 overflow-hidden">
 			<div class="max-w-4xl mx-auto text-center">
-				<h2 class="text-4xl md:text-5xl font-heading font-bold text-trust-blue mb-12">What Our Customers Say</h2>
+				<h2 class="reveal-heading text-4xl md:text-5xl font-heading font-bold text-trust-blue mb-12">What Our Customers Say</h2>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 					{testimonials.map(t => (
 						<div class="testimonial-card bg-gray-50 p-8 rounded-2xl italic text-gray-700 relative">
@@ -160,8 +165,8 @@ const testimonials = [
 		<!-- Pricing / Get a Quote -->
 		<section id="pricing" class="py-24 px-6 bg-trust-blue text-white overflow-hidden">
 			<div class="max-w-4xl mx-auto text-center">
-				<h2 class="text-4xl md:text-5xl font-heading font-bold mb-6">Honest, Competitive Pricing</h2>
-				<p class="text-xl text-calm-wash mb-10 max-w-2xl mx-auto">
+				<h2 class="reveal-heading text-4xl md:text-5xl font-heading font-bold mb-6">Honest, Competitive Pricing</h2>
+				<p class="reveal-heading text-xl text-calm-wash mb-10 max-w-2xl mx-auto">
 					Every job is different, so we quote each one individually, no generic price lists, no surprises. Just a fair price for quality work.
 				</p>
 				<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
@@ -228,8 +233,8 @@ const testimonials = [
 		<!-- Final CTA -->
 		<section id="contact" class="py-20 px-6 bg-action-orange text-white text-center">
 			<div class="max-w-3xl mx-auto">
-				<h2 class="text-4xl md:text-6xl font-heading font-bold mb-6">Ready to get those jobs sorted?</h2>
-				<p class="text-xl mb-10 text-white/90">Drop us a message on WhatsApp or give us a call to get a free, no-obligation quote. Serving Stoke-on-Trent & Staffordshire.</p>
+				<h2 class="reveal-heading text-4xl md:text-6xl font-heading font-bold mb-6">Ready to get those jobs sorted?</h2>
+				<p class="reveal-heading text-xl mb-10 text-white/90">Drop us a message on WhatsApp or give us a call to get a free, no-obligation quote. Serving Stoke-on-Trent & Staffordshire.</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
 					<a href="javascript:void(0)" data-contact-href="=QTNzIDOycjM1cDN08SZt5SY39yL6MHc0RHa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white text-xl font-bold px-10 py-5 rounded-full hover:bg-[#1ebd5c] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
 						<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -271,35 +276,33 @@ const testimonials = [
 			ease: "power3.out"
 		}, "-=0.6");
 
-		// Scroll Reveal using IntersectionObserver (no ScrollTrigger = no scroll hijacking)
+		// Scroll Reveal using IntersectionObserver — observe each element individually
 		function revealOnScroll(selector: string, animProps: gsap.TweenVars, stagger = 0.15) {
 			const els = document.querySelectorAll(selector);
 			if (!els.length) return;
 			// Set initial hidden state
 			els.forEach(el => gsap.set(el, { opacity: 0, ...animProps }));
-			// Create a one-shot observer
+			// Observe each element individually so it animates when IT enters the viewport
 			const observer = new IntersectionObserver((entries) => {
 				entries.forEach(entry => {
 					if (entry.isIntersecting) {
-						// Animate all matching elements with stagger
 						const resetProps: gsap.TweenVars = {};
 						for (const key of Object.keys(animProps)) resetProps[key] = 0;
-						gsap.to(selector, {
+						gsap.to(entry.target, {
 							opacity: 1,
 							...resetProps,
 							duration: 0.6,
-							stagger,
+							delay: stagger * Array.from(els).indexOf(entry.target as Element),
 							ease: "power2.out"
 						});
-						observer.disconnect();
+						observer.unobserve(entry.target);
 					}
 				});
-			}, { threshold: 0.1 });
-			// Observe the first element's parent section
-			const section = els[0].closest('section');
-			if (section) observer.observe(section);
+			}, { threshold: 0.15 });
+			els.forEach(el => observer.observe(el));
 		}
 
+		revealOnScroll(".reveal-heading", { y: 30 }, 0);
 		revealOnScroll(".service-card", { y: 50 });
 		revealOnScroll(".pillar-item", { x: -50 }, 0.2);
 		revealOnScroll(".pricing-card", { y: 40 }, 0.15);
@@ -323,9 +326,8 @@ const testimonials = [
 						tObserver.disconnect();
 					}
 				});
-			}, { threshold: 0.1 });
-			const tSection = testimonialEls[0].closest('section');
-			if (tSection) tObserver.observe(tSection);
+			}, { threshold: 0.15 });
+			testimonialEls.forEach(el => tObserver.observe(el));
 		}
 
 		// Polaroid Stack Carousel
