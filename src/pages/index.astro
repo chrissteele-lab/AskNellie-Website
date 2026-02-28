@@ -4,13 +4,12 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const services = [
-  { title: "Doors & Locks", desc: "Fixing sticking doors, replacing locks, and ensuring your home is secure.", icon: "🚪" },
-  { title: "Kitchens & Bathrooms", desc: "Worktop repairs, fresh silicone sealant, and fixing leaky taps.", icon: "💧" },
-  { title: "Odd Jobs & Mounting", desc: "TV mounting, shelving, flatpack assembly, and patching plasterboard holes.", icon: "🪛" },
-  { title: "Electrical Basics", desc: "Replacing sockets, installing light fittings, and general minor electrical tasks.", icon: "💡" },
-  { title: "Garden & Exterior", desc: "Fence & gate repairs, shed maintenance (paint/refelt), and garden tidying.", icon: "🏡" },
-  { title: "Jetwashing", desc: "Revitalize your driveways, patios, and exterior surfaces with professional jetwashing.", icon: "💦" },
-  { title: "Granite & Quartz Worktops", desc: "Specialist worktop fitting, repairs, and replacements. Over 20 years of experience in granite and quartz.", icon: "💎" }
+  { title: "Kitchens & Bathrooms", desc: "Silicone resealing, tap repairs, tiling touch-ups, and general kitchen and bathroom maintenance.", icon: "�" },
+  { title: "Granite & Quartz Worktops", desc: "Specialist fitting, cutting, and repairs for granite and quartz surfaces. Over 20 years' experience.", icon: "💎" },
+  { title: "Doors & Locks", desc: "Sticking doors fixed, new locks fitted, hinges replaced, and handles upgraded.", icon: "�" },
+  { title: "Odd Jobs & Mounting", desc: "TV wall mounting, shelving, flatpack assembly, and plasterboard repairs.", icon: "🪛" },
+  { title: "Electrical Basics", desc: "Socket and switch replacements, light fitting installations, and minor electrical tasks.", icon: "💡" },
+  { title: "Garden & Exterior", desc: "Fence and gate repairs, shed maintenance, garden tidying, and driveway jetwashing.", icon: "🏡" }
 ];
 
 const pillars = [
@@ -82,6 +81,7 @@ const testimonials = [
 						</div>
 					))}
 				</div>
+				<p class="service-card text-center mt-10 text-gray-500 text-lg">For more examples of our work, <a href="https://www.facebook.com/people/ASK-Nellie-handyman/61586513204662/" target="_blank" rel="noopener noreferrer" class="text-action-orange font-semibold hover:underline inline-flex items-center gap-1">follow us on Facebook <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></p>
 			</div>
 		</section>
 
@@ -125,7 +125,7 @@ const testimonials = [
 			</div>
 
 			<!-- Meet Neil -->
-			<div class="max-w-7xl mx-auto mt-20 pt-16 border-t border-trust-blue/10">
+			<div class="meet-neil max-w-7xl mx-auto mt-20 pt-16 border-t border-trust-blue/10">
 				<div class="max-w-3xl mx-auto text-center">
 					<h3 class="text-3xl md:text-4xl font-heading font-bold text-trust-blue mb-6">Meet Neil</h3>
 					<p class="text-lg text-gray-700 leading-relaxed mb-6">
@@ -304,6 +304,7 @@ const testimonials = [
 		revealOnScroll(".pillar-item", { x: -50 }, 0.2);
 		revealOnScroll(".pricing-card", { y: 40 }, 0.15);
 		revealOnScroll(".area-tag", { y: 30 }, 0.05);
+		revealOnScroll(".meet-neil", { y: 40 });
 
 		// Testimonials with custom ease
 		const testimonialEls = document.querySelectorAll(".testimonial-card");
