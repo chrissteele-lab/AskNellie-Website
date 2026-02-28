@@ -43,3 +43,11 @@
 - [x] Final commit & push to GitHub
 - [x] Deploy live site via Vercel
 
+// things to add to this list and organise:
+ - seo
+- cookies 
+- areas we serve (stoke on trent, newcastle under lyme, leek, staffordshire)
+- more text about Neil - years experience
+- adding the tel number on the call button so people can see the number incase they wanted to write it down
+- pricing section , examples of pricing, or just a guide to pricing
+
