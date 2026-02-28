@@ -65,8 +65,45 @@ const testimonials = [
 		</section>
 
 		<!-- Services Grid -->
-		<section id="services" class="py-24 px-6 bg-gray-50 overflow-hidden">
-			<div class="max-w-7xl mx-auto">
+		<section id="services" class="py-24 px-6 bg-gray-50 overflow-hidden relative">
+			<!-- Scattered Polaroid Photos - Desktop (hidden on mobile) -->
+			<div class="hidden lg:block">
+				<!-- Left side photos -->
+				<div class="work-photo absolute -left-4 top-32 bg-white p-2 rounded-lg shadow-lg z-0 opacity-70 hover:opacity-100 hover:z-20 transition-all duration-300" style="transform: rotate(-6deg);">
+					<img src="/assets/images/photo.png" alt="Handyman work example" class="w-36 h-28 object-cover rounded" />
+				</div>
+				<div class="work-photo absolute left-2 top-[55%] bg-white p-2 rounded-lg shadow-lg z-0 opacity-70 hover:opacity-100 hover:z-20 transition-all duration-300" style="transform: rotate(4deg);">
+					<img src="/assets/images/photo2.png" alt="Handyman work example" class="w-32 h-24 object-cover rounded" />
+				</div>
+				<div class="work-photo absolute -left-2 bottom-24 bg-white p-2 rounded-lg shadow-lg z-0 opacity-70 hover:opacity-100 hover:z-20 transition-all duration-300" style="transform: rotate(-3deg);">
+					<img src="/assets/images/photo3.png" alt="Handyman work example" class="w-36 h-28 object-cover rounded" />
+				</div>
+				<!-- Right side photos -->
+				<div class="work-photo absolute -right-4 top-40 bg-white p-2 rounded-lg shadow-lg z-0 opacity-70 hover:opacity-100 hover:z-20 transition-all duration-300" style="transform: rotate(5deg);">
+					<img src="/assets/images/photo3.png" alt="Handyman work example" class="w-32 h-24 object-cover rounded" />
+				</div>
+				<div class="work-photo absolute right-2 top-[50%] bg-white p-2 rounded-lg shadow-lg z-0 opacity-70 hover:opacity-100 hover:z-20 transition-all duration-300" style="transform: rotate(-4deg);">
+					<img src="/assets/images/photo.png" alt="Handyman work example" class="w-36 h-28 object-cover rounded" />
+				</div>
+				<div class="work-photo absolute -right-2 bottom-28 bg-white p-2 rounded-lg shadow-lg z-0 opacity-70 hover:opacity-100 hover:z-20 transition-all duration-300" style="transform: rotate(3deg);">
+					<img src="/assets/images/photo2.png" alt="Handyman work example" class="w-32 h-24 object-cover rounded" />
+				</div>
+			</div>
+
+			<!-- Polaroid strip - Mobile only (above cards) -->
+			<div class="flex lg:hidden gap-4 overflow-x-auto pb-8 -mx-2 px-2 scrollbar-hide">
+				<div class="work-photo flex-shrink-0 bg-white p-1.5 rounded-lg shadow-md" style="transform: rotate(-3deg);">
+					<img src="/assets/images/photo.png" alt="Handyman work" class="w-28 h-20 object-cover rounded" />
+				</div>
+				<div class="work-photo flex-shrink-0 bg-white p-1.5 rounded-lg shadow-md" style="transform: rotate(2deg);">
+					<img src="/assets/images/photo2.png" alt="Handyman work" class="w-28 h-20 object-cover rounded" />
+				</div>
+				<div class="work-photo flex-shrink-0 bg-white p-1.5 rounded-lg shadow-md" style="transform: rotate(-2deg);">
+					<img src="/assets/images/photo3.png" alt="Handyman work" class="w-28 h-20 object-cover rounded" />
+				</div>
+			</div>
+
+			<div class="max-w-5xl mx-auto relative z-10">
 				<div class="reveal-heading text-center mb-16">
 					<h2 class="text-4xl md:text-5xl font-heading font-bold text-trust-blue mb-4">Our Services</h2>
 					<p class="text-lg text-gray-600 max-w-2xl mx-auto">From quick fixes to custom builds across Stoke-on-Trent and Staffordshire, we handle it all with care and precision.</p>
@@ -82,6 +119,19 @@ const testimonials = [
 					))}
 				</div>
 				<p class="service-card text-center mt-10 text-gray-500 text-lg">For more examples of our work, <a href="https://www.facebook.com/people/ASK-Nellie-handyman/61586513204662/" target="_blank" rel="noopener noreferrer" class="text-action-orange font-semibold hover:underline inline-flex items-center gap-1">follow us on Facebook <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></p>
+			</div>
+
+			<!-- Polaroid strip - Mobile only (below cards) -->
+			<div class="flex lg:hidden gap-4 overflow-x-auto pt-8 -mx-2 px-2 scrollbar-hide">
+				<div class="work-photo flex-shrink-0 bg-white p-1.5 rounded-lg shadow-md" style="transform: rotate(3deg);">
+					<img src="/assets/images/photo3.png" alt="Handyman work" class="w-28 h-20 object-cover rounded" />
+				</div>
+				<div class="work-photo flex-shrink-0 bg-white p-1.5 rounded-lg shadow-md" style="transform: rotate(-2deg);">
+					<img src="/assets/images/photo.png" alt="Handyman work" class="w-28 h-20 object-cover rounded" />
+				</div>
+				<div class="work-photo flex-shrink-0 bg-white p-1.5 rounded-lg shadow-md" style="transform: rotate(2deg);">
+					<img src="/assets/images/photo2.png" alt="Handyman work" class="w-28 h-20 object-cover rounded" />
+				</div>
 			</div>
 		</section>
 
@@ -308,6 +358,7 @@ const testimonials = [
 		revealOnScroll(".pricing-card", { y: 40 }, 0.15);
 		revealOnScroll(".area-tag", { y: 30 }, 0.05);
 		revealOnScroll(".meet-neil", { y: 40 });
+		revealOnScroll(".work-photo", { y: 20, scale: 0.9 }, 0.1);
 
 		// Testimonials with custom ease
 		const testimonialEls = document.querySelectorAll(".testimonial-card");
