@@ -50,8 +50,10 @@
 - [x] Local business structured data (Schema.org JSON-LD)
 - [x] Improve meta descriptions, keywords, and geo meta tags
 - [x] Weave location keywords into all page copy for local SEO
-- [ ] Expand "About Neil" section — years of experience, personal story
-- [ ] Add pricing guide section (starting-from examples)
+- [x] Expand "About Neil" section — years of experience, personal story
+- [ ] Check Neil for qualifications/certifications to add to About section
+- [x] Add pricing guide section (soft approach — encourages contact)
+- [ ] Add "Follow Us on Facebook" section
 
 ## Phase 9: Compliance & Analytics
 - [ ] Set up Google Business Profile (essential for local SEO!)
